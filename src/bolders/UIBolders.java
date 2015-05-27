@@ -32,16 +32,22 @@ public class UIBolders {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UIBolders window = new UIBolders();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
+		
+		if(args.length<2){
+			EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					try {
+						UIBolders window = new UIBolders();
+						window.frame.setVisible(true);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
-			}
-		});
+			});
+		}else{ // soy command line
+			Bolders.CommandLine(args);
+		}
+		
 	}
 
 	/**
@@ -150,6 +156,7 @@ public class UIBolders {
 	protected void getPalabras() {
 		JFileChooser dlgOpen = new JFileChooser();
 		dlgOpen.setMultiSelectionEnabled(false);
+		dlgOpen.setApproveButtonText("Seleccionar archivos");
 		int res = dlgOpen.showDialog(this.frame, "");
 		if (res == JFileChooser.APPROVE_OPTION) {
 			
