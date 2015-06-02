@@ -11,7 +11,6 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Bolders {
 
-	
 	public static void CommandLine(String[] args) {
 		
 		// parameters
